@@ -10,8 +10,15 @@
 
 #import "DetailViewController.h"
 
-@interface MasterViewController () {
+#import "AddItemViewController.h"
+
+#import "Sound.h"
+#import "UITableViewCellAsTodo.h"
+
+@interface MasterViewController () <AddItemViewControllerDelegate>{
     NSMutableArray *_objects;
+    Sound *soundInstance;
+    
 }
 @end
 
@@ -25,11 +32,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    soundInstance = [Sound initSound];
 	// Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
-
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    self.navigationItem.rightBarButtonItem = addButton;
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,14 +44,35 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)insertNewObject:(id)sender
+- (void)addItemViewControllerDidCancel:(AddItemViewController *)controller
 {
-    if (!_objects) {
+    NSLog(@"addItemViewControllerDIdCancel");
+    
+    //画面を閉じるメソッドを呼ぶ
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)addItemViewControllerDidFinish:(AddItemViewController *)controller item:(NSString *)item
+{
+    NSLog(@"addItemViewControllerDIdFinishd");
+    
+    //保存するための配列の準備ができていない場合は、配列を生成し、初期化する
+    if(!_objects){
         _objects = [[NSMutableArray alloc] init];
     }
-    [_objects insertObject:[NSDate date] atIndex:0];
+    
+    //受け取ったitemを配列に格納する
+    [_objects insertObject:item atIndex:0];
+    
+    //TableViewに行を挿入する
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    
+    
+    //画面を閉じるメソッドを呼ぶ
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 #pragma mark - Table View
@@ -103,11 +130,22 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:@"showDetail"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSDate *object = _objects[indexPath.row];
-        [[segue destinationViewController] setDetailItem:object];
+    if ([[segue identifier] isEqualToString:@"ShowAddItemView"]) {
+        
+        // 遷移先のAddItemViewControllerのインスタンスを取得
+        AddItemViewController *addItemViewController = (AddItemViewController *)[[[segue destinationViewController]viewControllers]objectAtIndex:0];
+        
+        // delegateプロパティにself(MasterViewController自身)をセット
+        addItemViewController.delegate = self;
     }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES]; // 選択状態の解除をします。
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    cell.backgroundColor = [UIColor redColor];
+    //音声再生
+    [soundInstance play];
 }
 
 @end

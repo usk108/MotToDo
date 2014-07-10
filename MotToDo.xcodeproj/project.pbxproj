@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D1240FFB196DA5B800D88A40 /* Sound.m in Sources */ = {isa = PBXBuildFile; fileRef = D1240FFA196DA5B800D88A40 /* Sound.m */; };
+		D1240FFD196DA5DE00D88A40 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1240FFC196DA5DE00D88A40 /* AudioToolbox.framework */; };
+		D1241000196DA9FB00D88A40 /* oikaketemasuka.wav in Resources */ = {isa = PBXBuildFile; fileRef = D1240FFF196DA9FB00D88A40 /* oikaketemasuka.wav */; };
+		D1241002196E388C00D88A40 /* ganbareganbare.wav in Resources */ = {isa = PBXBuildFile; fileRef = D1241001196E388C00D88A40 /* ganbareganbare.wav */; };
+		D1241007196E47C100D88A40 /* ganbareyo.wav in Resources */ = {isa = PBXBuildFile; fileRef = D1241003196E47C100D88A40 /* ganbareyo.wav */; };
+		D1241008196E47C100D88A40 /* atsukunareyo.wav in Resources */ = {isa = PBXBuildFile; fileRef = D1241004196E47C100D88A40 /* atsukunareyo.wav */; };
+		D1241009196E47C100D88A40 /* chancegakuru.wav in Resources */ = {isa = PBXBuildFile; fileRef = D1241005196E47C100D88A40 /* chancegakuru.wav */; };
+		D124100A196E47C100D88A40 /* fujisanda.wav in Resources */ = {isa = PBXBuildFile; fileRef = D1241006196E47C100D88A40 /* fujisanda.wav */; };
+		D124100D196E66E600D88A40 /* UITableViewCellAsTodo.m in Sources */ = {isa = PBXBuildFile; fileRef = D124100C196E66E600D88A40 /* UITableViewCellAsTodo.m */; };
 		D1C880B3196BA24300F58769 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1C880B2196BA24300F58769 /* Foundation.framework */; };
 		D1C880B5196BA24300F58769 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1C880B4196BA24300F58769 /* CoreGraphics.framework */; };
 		D1C880B7196BA24300F58769 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1C880B6196BA24300F58769 /* UIKit.framework */; };
@@ -22,6 +31,7 @@
 		D1C880D7196BA24400F58769 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1C880B6196BA24300F58769 /* UIKit.framework */; };
 		D1C880DF196BA24400F58769 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D1C880DD196BA24400F58769 /* InfoPlist.strings */; };
 		D1C880E1196BA24400F58769 /* MotToDoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C880E0196BA24400F58769 /* MotToDoTests.m */; };
+		D1C880EF196BDD8E00F58769 /* AddItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C880EE196BDD8E00F58769 /* AddItemViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +45,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D1240FF9196DA5B800D88A40 /* Sound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sound.h; sourceTree = "<group>"; };
+		D1240FFA196DA5B800D88A40 /* Sound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sound.m; sourceTree = "<group>"; };
+		D1240FFC196DA5DE00D88A40 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		D1240FFF196DA9FB00D88A40 /* oikaketemasuka.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = oikaketemasuka.wav; sourceTree = "<group>"; };
+		D1241001196E388C00D88A40 /* ganbareganbare.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ganbareganbare.wav; sourceTree = "<group>"; };
+		D1241003196E47C100D88A40 /* ganbareyo.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ganbareyo.wav; sourceTree = "<group>"; };
+		D1241004196E47C100D88A40 /* atsukunareyo.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = atsukunareyo.wav; sourceTree = "<group>"; };
+		D1241005196E47C100D88A40 /* chancegakuru.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = chancegakuru.wav; sourceTree = "<group>"; };
+		D1241006196E47C100D88A40 /* fujisanda.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = fujisanda.wav; sourceTree = "<group>"; };
+		D124100B196E66E600D88A40 /* UITableViewCellAsTodo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITableViewCellAsTodo.h; sourceTree = "<group>"; };
+		D124100C196E66E600D88A40 /* UITableViewCellAsTodo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITableViewCellAsTodo.m; sourceTree = "<group>"; };
 		D1C880AF196BA24300F58769 /* MotToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MotToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1C880B2196BA24300F58769 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D1C880B4196BA24300F58769 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -56,6 +77,8 @@
 		D1C880DC196BA24400F58769 /* MotToDoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MotToDoTests-Info.plist"; sourceTree = "<group>"; };
 		D1C880DE196BA24400F58769 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D1C880E0196BA24400F58769 /* MotToDoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MotToDoTests.m; sourceTree = "<group>"; };
+		D1C880ED196BDD8E00F58769 /* AddItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddItemViewController.h; sourceTree = "<group>"; };
+		D1C880EE196BDD8E00F58769 /* AddItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddItemViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1240FFD196DA5DE00D88A40 /* AudioToolbox.framework in Frameworks */,
 				D1C880B5196BA24300F58769 /* CoreGraphics.framework in Frameworks */,
 				D1C880B7196BA24300F58769 /* UIKit.framework in Frameworks */,
 				D1C880B3196BA24300F58769 /* Foundation.framework in Frameworks */,
@@ -82,6 +106,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D1240FFE196DA98300D88A40 /* sounds */ = {
+			isa = PBXGroup;
+			children = (
+				D1241003196E47C100D88A40 /* ganbareyo.wav */,
+				D1241004196E47C100D88A40 /* atsukunareyo.wav */,
+				D1241005196E47C100D88A40 /* chancegakuru.wav */,
+				D1241006196E47C100D88A40 /* fujisanda.wav */,
+				D1241001196E388C00D88A40 /* ganbareganbare.wav */,
+				D1240FFF196DA9FB00D88A40 /* oikaketemasuka.wav */,
+			);
+			name = sounds;
+			sourceTree = "<group>";
+		};
 		D1C880A6196BA24300F58769 = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +141,7 @@
 		D1C880B1196BA24300F58769 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D1240FFC196DA5DE00D88A40 /* AudioToolbox.framework */,
 				D1C880B2196BA24300F58769 /* Foundation.framework */,
 				D1C880B4196BA24300F58769 /* CoreGraphics.framework */,
 				D1C880B6196BA24300F58769 /* UIKit.framework */,
@@ -115,6 +153,7 @@
 		D1C880B8196BA24300F58769 /* MotToDo */ = {
 			isa = PBXGroup;
 			children = (
+				D1240FFE196DA98300D88A40 /* sounds */,
 				D1C880C1196BA24300F58769 /* AppDelegate.h */,
 				D1C880C2196BA24300F58769 /* AppDelegate.m */,
 				D1C880C4196BA24300F58769 /* Main.storyboard */,
@@ -124,6 +163,12 @@
 				D1C880CB196BA24300F58769 /* DetailViewController.m */,
 				D1C880CD196BA24300F58769 /* Images.xcassets */,
 				D1C880B9196BA24300F58769 /* Supporting Files */,
+				D1C880ED196BDD8E00F58769 /* AddItemViewController.h */,
+				D1C880EE196BDD8E00F58769 /* AddItemViewController.m */,
+				D1240FF9196DA5B800D88A40 /* Sound.h */,
+				D1240FFA196DA5B800D88A40 /* Sound.m */,
+				D124100B196E66E600D88A40 /* UITableViewCellAsTodo.h */,
+				D124100C196E66E600D88A40 /* UITableViewCellAsTodo.m */,
 			);
 			path = MotToDo;
 			sourceTree = "<group>";
@@ -234,7 +279,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1C880CE196BA24300F58769 /* Images.xcassets in Resources */,
+				D1241000196DA9FB00D88A40 /* oikaketemasuka.wav in Resources */,
+				D1241008196E47C100D88A40 /* atsukunareyo.wav in Resources */,
 				D1C880BD196BA24300F58769 /* InfoPlist.strings in Resources */,
+				D1241007196E47C100D88A40 /* ganbareyo.wav in Resources */,
+				D1241009196E47C100D88A40 /* chancegakuru.wav in Resources */,
+				D124100A196E47C100D88A40 /* fujisanda.wav in Resources */,
+				D1241002196E388C00D88A40 /* ganbareganbare.wav in Resources */,
 				D1C880C6196BA24300F58769 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -257,6 +308,9 @@
 				D1C880C3196BA24300F58769 /* AppDelegate.m in Sources */,
 				D1C880C9196BA24300F58769 /* MasterViewController.m in Sources */,
 				D1C880BF196BA24300F58769 /* main.m in Sources */,
+				D1240FFB196DA5B800D88A40 /* Sound.m in Sources */,
+				D124100D196E66E600D88A40 /* UITableViewCellAsTodo.m in Sources */,
+				D1C880EF196BDD8E00F58769 /* AddItemViewController.m in Sources */,
 				D1C880CC196BA24300F58769 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -462,6 +516,7 @@
 				D1C880E6196BA24400F58769 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D1C880E7196BA24400F58769 /* Build configuration list for PBXNativeTarget "MotToDoTests" */ = {
 			isa = XCConfigurationList;
@@ -470,6 +525,7 @@
 				D1C880E9196BA24400F58769 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
