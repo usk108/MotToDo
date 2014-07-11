@@ -14,6 +14,7 @@
 +(id)initSound;
 -(id)init;
 -(void)setSound;
--(void)play;
+-(void)cheerPlay;
+-(void)praisePlay;
 
 @end

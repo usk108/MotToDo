@@ -18,7 +18,6 @@
 @interface MasterViewController () <AddItemViewControllerDelegate>{
     NSMutableArray *_objects;
     Sound *soundInstance;
-    
 }
 @end
 
@@ -69,7 +68,8 @@
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-    
+    [cell setState:0];
+    //NSLog(@"%d",cell.state);
     
     //画面を閉じるメソッドを呼ぶ
     [self dismissViewControllerAnimated:YES completion:NULL];
@@ -143,9 +143,18 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES]; // 選択状態の解除をします。
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-    cell.backgroundColor = [UIColor redColor];
-    //音声再生
-    [soundInstance play];
+    NSLog(@"%d",[cell state]);
+    int state = [cell state];
+    if(state == 0){
+        cell.backgroundColor = [UIColor redColor];
+        //音声再生
+        [soundInstance cheerPlay];
+        [cell setState:1];
+    }else{
+        cell.backgroundColor = [UIColor blueColor];
+        //音声再生
+        [soundInstance praisePlay];
+    }
 }
 
 @end

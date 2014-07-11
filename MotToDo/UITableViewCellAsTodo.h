@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UITableViewCellAsTodo : UITableViewCell
+@interface UITableViewCell (Action)
 
 //@property NSInteger state;
-@property int state;
+//@property (nonatomic,readwrite,getter = getState, setter=setState:)int state;
+@property (nonatomic)int state;
 
 @end

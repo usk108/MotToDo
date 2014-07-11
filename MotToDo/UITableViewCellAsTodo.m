@@ -9,48 +9,25 @@
 #import "UITableViewCellAsTodo.h"
 #import <objc/runtime.h>
 
-@implementation UITableViewCellAsTodo
+@implementation UITableViewCell (Action)
+
 static char stateKey; // 状態用のキー
 
 @dynamic state;
 
 #pragma mark - Setter/Getter
 
-// 表示フレームの保持
 - (void)setState:(int)state
 {
-    //NSValue *value = [NSValue valueWithCGRect:inFrame];
-    objc_setAssociatedObject(self, &stateKey,
-                             [NSNumber numberWithInt:state], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    NSLog(@"in setState state = %d",state);
+    NSNumber *statenumber =[NSNumber numberWithInt:state];
+    NSLog(@"in setState NSNumber = %@",statenumber);
+    objc_setAssociatedObject(self, &stateKey,statenumber, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-// 保持された表示時フレームの取得
-- (int)getState
+- (int)state
 {
-    return [objc_getAssociatedObject(self, &stateKey) state];
-}
-
-
-
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        // Initialization code
-    }
-    return self;
-}
-
-- (void)awakeFromNib
-{
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+    return [objc_getAssociatedObject(self,&stateKey) intValue];
 }
 
 @end

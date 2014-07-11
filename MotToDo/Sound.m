@@ -13,30 +13,31 @@
     CFURLRef soundURL;
     //サウンドIDを生成、iOSはこの値をもとに再生する音を識別する
     SystemSoundID soundID;
-    NSMutableArray *soundIDs;
+    NSMutableArray *praiseSoundIDs;
+    NSMutableArray *cheerSoundIDs;
+
 }
 
 -(void)setSound{
-//    //[clap.wav]というファイルを読みこんで、soundURLを生成
-//    CFBundleRef mainBundle = CFBundleGetMainBundle();
-//    //soundURL = CFBundleCopyResourceURL(mainBundle,CFSTR("oikaketemasuka"),CFSTR("wav"),nil);
-//    soundURL = CFBundleCopyResourceURL(mainBundle,CFSTR("ganbareganbare"),CFSTR("wav"),nil);
-//    //soundURLをもとに、soundIDを生成
-//    AudioServicesCreateSystemSoundID(soundURL, &soundID);
-
-    //[clap.wav]というファイルを読みこんで、soundURLを生成
-   
-    soundIDs = [NSMutableArray array];
+    praiseSoundIDs = [NSMutableArray array];
+    cheerSoundIDs = [NSMutableArray array];
     
     int i;
-    NSArray *soundFiles = @[@"ganbareganbare",@"oikaketemasuka",@"fujisanda"];
+    NSArray *cheerSoundFiles = @[@"ganbareganbare",@"oikaketemasuka",@"ganbareyo",@"atsukunareyo"];
+    NSArray *praiseSoundFiles = @[@"chancegakuru",@"fujisanda",@"fight-shibasaki"];
     CFBundleRef mainBundle = CFBundleGetMainBundle();
     
-    for(i=0;i<soundFiles.count;i++){
-        soundURL = CFBundleCopyResourceURL(mainBundle,(__bridge CFStringRef)soundFiles[i],CFSTR("wav"),nil);
+    for(i=0;i<cheerSoundFiles.count;i++){
+        soundURL = CFBundleCopyResourceURL(mainBundle,(__bridge CFStringRef)cheerSoundFiles[i],CFSTR("wav"),nil);
         //soundURLをもとに、soundIDを生成
         AudioServicesCreateSystemSoundID(soundURL, &soundID);
-        [soundIDs addObject:@(soundID)];
+        [cheerSoundIDs addObject:@(soundID)];
+    }
+    for(i=0;i<praiseSoundFiles.count;i++){
+        soundURL = CFBundleCopyResourceURL(mainBundle,(__bridge CFStringRef)praiseSoundFiles[i],CFSTR("wav"),nil);
+        //soundURLをもとに、soundIDを生成
+        AudioServicesCreateSystemSoundID(soundURL, &soundID);
+        [praiseSoundIDs addObject:@(soundID)];
     }
     
     
@@ -44,9 +45,16 @@
 }
 
 //soundIDが示す音を再生する
--(void)play{
+-(void)cheerPlay{
+    int i = arc4random()%4;
+    soundID = [[cheerSoundIDs objectAtIndex:i] unsignedLongValue];
+    AudioServicesPlaySystemSound(soundID);
+}
+
+//soundIDが示す音を再生する
+-(void)praisePlay{
     int i = arc4random()%3;
-    soundID = [[soundIDs objectAtIndex:i] unsignedLongValue];
+    soundID = [[praiseSoundIDs objectAtIndex:i] unsignedLongValue];
     AudioServicesPlaySystemSound(soundID);
 }
 
