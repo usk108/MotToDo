@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <AudioToolbox/AudioToolbox.h>
 
-@interface Sound : NSObject
+@interface Sound : NSObject <UIAlertViewDelegate>
 
 +(id)initSound;
 -(id)init;

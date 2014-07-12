@@ -12,8 +12,10 @@
 @implementation UITableViewCell (Action)
 
 static char stateKey; // 状態用のキー
+static char todoKey; // 状態用のキー
 
 @dynamic state;
+@dynamic todo;
 
 #pragma mark - Setter/Getter
 
@@ -24,10 +26,27 @@ static char stateKey; // 状態用のキー
     NSLog(@"in setState NSNumber = %@",statenumber);
     objc_setAssociatedObject(self, &stateKey,statenumber, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
+- (void)setTodoid:(char *)todoid
+{
+    NSLog(@"in cell todoid is %s",todoid);
+    self.todoid = todoid;
+}
+- (void)setTodo:(Todo*)todo
+{
+    NSLog(@"%@",[todo text]);
+    objc_setAssociatedObject(self, &todoKey,todo, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+
+}
 
 - (int)state
 {
     return [objc_getAssociatedObject(self,&stateKey) intValue];
+}
+
+
+- (Todo *)todo
+{
+    return objc_getAssociatedObject(self,&todoKey);
 }
 
 @end

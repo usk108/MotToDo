@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Todo.h"
 
 @interface UITableViewCell (Action)
 
 //@property NSInteger state;
 //@property (nonatomic,readwrite,getter = getState, setter=setState:)int state;
 @property (nonatomic)int state;
+@property (nonatomic)Todo* todo;
 
 @end

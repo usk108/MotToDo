@@ -13,11 +13,14 @@
 #import "AddItemViewController.h"
 
 #import "Sound.h"
+#import "Todo.h"
 #import "UITableViewCellAsTodo.h"
 
 @interface MasterViewController () <AddItemViewControllerDelegate>{
     NSMutableArray *_objects;
     Sound *soundInstance;
+    NSMutableArray *todos;
+    NSString *todoKey;
 }
 @end
 
@@ -32,6 +35,61 @@
 {
     [super viewDidLoad];
     
+    todoKey =@"todokey";
+    
+    NSUserDefaults *_userDefaults = [NSUserDefaults standardUserDefaults];
+    NSArray *oldtodos;
+    oldtodos = [_userDefaults arrayForKey:todoKey]; //読み込み
+    todos  = [oldtodos mutableCopy];
+    
+    //読み込んだtodoをTableViewに表示
+    for(Todo *todo in todos){
+        //保存するための配列の準備ができていない場合は、配列を生成し、初期化する
+        NSLog(@"%@",[todo text]);
+        if(!_objects){
+            _objects = [[NSMutableArray alloc] init];
+        }
+        
+        [_objects insertObject:[todo text] atIndex:0];
+        
+        //TableViewに行を挿入する
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+        [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        
+        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+        //作成したセルとtodoインスタンスとの関連づけ（ぶっちゃけstateいらないかも）
+        [cell setState:[todo state]];
+        [cell setTodo:todo];
+        
+        int state=[todo state];
+        if(state==1){
+            // Set backgroundView
+            UIImageView *imageView;
+            UIImage *image;
+            image = [UIImage imageNamed:@"halforange.png"];
+            imageView = [[UIImageView alloc] initWithImage:image];
+            cell.backgroundView = imageView;
+            
+            // Set text color
+            cell.textLabel.textColor = [UIColor whiteColor];
+        }else if(state==2){
+            // Set backgroundView
+            UIImageView *imageView;
+            UIImage *image;
+            image = [UIImage imageNamed:@"allorange.png"];
+            imageView = [[UIImageView alloc] initWithImage:image];
+            cell.backgroundView = imageView;
+            
+            // Set text color
+            cell.textLabel.textColor = [UIColor lightGrayColor];
+        
+        }
+    }
+    
+    UIImage* image = [UIImage imageNamed:@"fuji.jpg"];
+    UIImageView* imageView = [[UIImageView alloc] initWithImage:image];
+    [self.tableView setBackgroundView:imageView];
+    
     soundInstance = [Sound initSound];
 	// Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
@@ -45,16 +103,12 @@
 
 - (void)addItemViewControllerDidCancel:(AddItemViewController *)controller
 {
-    NSLog(@"addItemViewControllerDIdCancel");
-    
     //画面を閉じるメソッドを呼ぶ
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 - (void)addItemViewControllerDidFinish:(AddItemViewController *)controller item:(NSString *)item
 {
-    NSLog(@"addItemViewControllerDIdFinishd");
-    
     //保存するための配列の準備ができていない場合は、配列を生成し、初期化する
     if(!_objects){
         _objects = [[NSMutableArray alloc] init];
@@ -63,13 +117,23 @@
     //受け取ったitemを配列に格納する
     [_objects insertObject:item atIndex:0];
     
+    //Todoインスタンスを生成し、リストに登録
+    Todo *newtodo = [Todo initTodo];
+    [newtodo setText:item];
+    [newtodo setState:0];
+    [todos addObject:newtodo];
+    
+    //データの永続保存
+    [self store];
+    
     //TableViewに行を挿入する
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    //作成したセルとtodoインスタンスとの関連づけ（ぶっちゃけstateいらないかも）
     [cell setState:0];
-    //NSLog(@"%d",cell.state);
+    [cell setTodo:newtodo];
     
     //画面を閉じるメソッドを呼ぶ
     [self dismissViewControllerAnimated:YES completion:NULL];
@@ -93,6 +157,7 @@
 
     NSDate *object = _objects[indexPath.row];
     cell.textLabel.text = [object description];
+    cell.backgroundColor = [UIColor clearColor];
     return cell;
 }
 
@@ -107,6 +172,14 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [_objects removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+        for (Todo *selectedTodo in todos) {
+            if(selectedTodo == [cell todo]){
+                [todos removeObject:selectedTodo];
+                [self store];
+                break;
+            }
+        }
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
     }
@@ -146,15 +219,61 @@
     NSLog(@"%d",[cell state]);
     int state = [cell state];
     if(state == 0){
-        cell.backgroundColor = [UIColor redColor];
         //音声再生
         [soundInstance cheerPlay];
+        
+        //todoの状態更新
         [cell setState:1];
+        for (Todo *selectedTodo in todos) {
+            if(selectedTodo == [cell todo]){
+                [selectedTodo setState:1];
+                break;
+            }
+        }
+        
+        // Set backgroundView
+        UIImageView *imageView;
+        UIImage *image;
+        image = [UIImage imageNamed:@"halforange.png"];
+        imageView = [[UIImageView alloc] initWithImage:image];
+        cell.backgroundView = imageView;
+        
+        // Set text color
+        cell.textLabel.textColor = [UIColor whiteColor];
+//    }else if(state == 1){
     }else{
-        cell.backgroundColor = [UIColor blueColor];
         //音声再生
         [soundInstance praisePlay];
+        
+        //todoの状態更新
+        [cell setState:2];
+        for (Todo *selectedTodo in todos) {
+            if(selectedTodo == [cell todo]){
+                [selectedTodo setState:2];
+                break;
+            }
+        }
+       
+        // Set backgroundView
+        UIImageView *imageView;
+        UIImage *image;
+        image = [UIImage imageNamed:@"allorange.png"];
+        imageView = [[UIImageView alloc] initWithImage:image];
+        cell.backgroundView = imageView;
+        
+        // Set text color
+        cell.textLabel.textColor = [UIColor lightGrayColor];
+        
+        
     }
 }
+
+- (void)store
+{
+    NSUserDefaults *_userDefaults = [NSUserDefaults standardUserDefaults];
+    [_userDefaults setObject:todos forKey:todoKey]; //ここで指定したキーで保存・読み込みを行う
+    [_userDefaults synchronize]; //保存を実行
+}
+
 
 @end

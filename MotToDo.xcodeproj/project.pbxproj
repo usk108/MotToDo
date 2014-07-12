@@ -17,6 +17,16 @@
 		D124100A196E47C100D88A40 /* fujisanda.wav in Resources */ = {isa = PBXBuildFile; fileRef = D1241006196E47C100D88A40 /* fujisanda.wav */; };
 		D124100D196E66E600D88A40 /* UITableViewCellAsTodo.m in Sources */ = {isa = PBXBuildFile; fileRef = D124100C196E66E600D88A40 /* UITableViewCellAsTodo.m */; };
 		D124100F196FF91200D88A40 /* fight-shibasaki.wav in Resources */ = {isa = PBXBuildFile; fileRef = D124100E196FF91200D88A40 /* fight-shibasaki.wav */; };
+		D12410121970BA2200D88A40 /* halfblue.png in Resources */ = {isa = PBXBuildFile; fileRef = D12410111970BA2200D88A40 /* halfblue.png */; };
+		D12410141970BB0E00D88A40 /* allblue.png in Resources */ = {isa = PBXBuildFile; fileRef = D12410131970BB0E00D88A40 /* allblue.png */; };
+		D12410181970D34600D88A40 /* allorange.png in Resources */ = {isa = PBXBuildFile; fileRef = D12410151970D34600D88A40 /* allorange.png */; };
+		D12410191970D34600D88A40 /* halforange.png in Resources */ = {isa = PBXBuildFile; fileRef = D12410161970D34600D88A40 /* halforange.png */; };
+		D124101A1970D34600D88A40 /* fuji.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D12410171970D34600D88A40 /* fuji.jpg */; };
+		D124101C1970EFC500D88A40 /* shibasaki1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D124101B1970EFC500D88A40 /* shibasaki1.jpg */; };
+		D124101E197121D100D88A40 /* akiramennayo.wav in Resources */ = {isa = PBXBuildFile; fileRef = D124101D197121D100D88A40 /* akiramennayo.wav */; };
+		D12410211971223200D88A40 /* gakepputi.wav in Resources */ = {isa = PBXBuildFile; fileRef = D124101F1971223200D88A40 /* gakepputi.wav */; };
+		D12410221971223200D88A40 /* hitoyasumi.wav in Resources */ = {isa = PBXBuildFile; fileRef = D12410201971223200D88A40 /* hitoyasumi.wav */; };
+		D12410251971A42600D88A40 /* Todo.m in Sources */ = {isa = PBXBuildFile; fileRef = D12410241971A42600D88A40 /* Todo.m */; };
 		D1C880B3196BA24300F58769 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1C880B2196BA24300F58769 /* Foundation.framework */; };
 		D1C880B5196BA24300F58769 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1C880B4196BA24300F58769 /* CoreGraphics.framework */; };
 		D1C880B7196BA24300F58769 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1C880B6196BA24300F58769 /* UIKit.framework */; };
@@ -58,6 +68,17 @@
 		D124100B196E66E600D88A40 /* UITableViewCellAsTodo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITableViewCellAsTodo.h; sourceTree = "<group>"; };
 		D124100C196E66E600D88A40 /* UITableViewCellAsTodo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITableViewCellAsTodo.m; sourceTree = "<group>"; };
 		D124100E196FF91200D88A40 /* fight-shibasaki.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "fight-shibasaki.wav"; sourceTree = "<group>"; };
+		D12410111970BA2200D88A40 /* halfblue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = halfblue.png; sourceTree = "<group>"; };
+		D12410131970BB0E00D88A40 /* allblue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = allblue.png; sourceTree = "<group>"; };
+		D12410151970D34600D88A40 /* allorange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = allorange.png; sourceTree = "<group>"; };
+		D12410161970D34600D88A40 /* halforange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = halforange.png; sourceTree = "<group>"; };
+		D12410171970D34600D88A40 /* fuji.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fuji.jpg; sourceTree = "<group>"; };
+		D124101B1970EFC500D88A40 /* shibasaki1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = shibasaki1.jpg; sourceTree = "<group>"; };
+		D124101D197121D100D88A40 /* akiramennayo.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = akiramennayo.wav; sourceTree = "<group>"; };
+		D124101F1971223200D88A40 /* gakepputi.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = gakepputi.wav; sourceTree = "<group>"; };
+		D12410201971223200D88A40 /* hitoyasumi.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = hitoyasumi.wav; sourceTree = "<group>"; };
+		D12410231971A42600D88A40 /* Todo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Todo.h; sourceTree = "<group>"; };
+		D12410241971A42600D88A40 /* Todo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Todo.m; sourceTree = "<group>"; };
 		D1C880AF196BA24300F58769 /* MotToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MotToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1C880B2196BA24300F58769 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D1C880B4196BA24300F58769 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -111,6 +132,9 @@
 		D1240FFE196DA98300D88A40 /* sounds */ = {
 			isa = PBXGroup;
 			children = (
+				D124101F1971223200D88A40 /* gakepputi.wav */,
+				D12410201971223200D88A40 /* hitoyasumi.wav */,
+				D124101D197121D100D88A40 /* akiramennayo.wav */,
 				D124100E196FF91200D88A40 /* fight-shibasaki.wav */,
 				D1241003196E47C100D88A40 /* ganbareyo.wav */,
 				D1241004196E47C100D88A40 /* atsukunareyo.wav */,
@@ -120,6 +144,19 @@
 				D1240FFF196DA9FB00D88A40 /* oikaketemasuka.wav */,
 			);
 			name = sounds;
+			sourceTree = "<group>";
+		};
+		D12410101970BA1700D88A40 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				D124101B1970EFC500D88A40 /* shibasaki1.jpg */,
+				D12410151970D34600D88A40 /* allorange.png */,
+				D12410161970D34600D88A40 /* halforange.png */,
+				D12410171970D34600D88A40 /* fuji.jpg */,
+				D12410131970BB0E00D88A40 /* allblue.png */,
+				D12410111970BA2200D88A40 /* halfblue.png */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 		D1C880A6196BA24300F58769 = {
@@ -156,6 +193,7 @@
 		D1C880B8196BA24300F58769 /* MotToDo */ = {
 			isa = PBXGroup;
 			children = (
+				D12410101970BA1700D88A40 /* images */,
 				D1240FFE196DA98300D88A40 /* sounds */,
 				D1C880C1196BA24300F58769 /* AppDelegate.h */,
 				D1C880C2196BA24300F58769 /* AppDelegate.m */,
@@ -172,6 +210,8 @@
 				D1240FFA196DA5B800D88A40 /* Sound.m */,
 				D124100B196E66E600D88A40 /* UITableViewCellAsTodo.h */,
 				D124100C196E66E600D88A40 /* UITableViewCellAsTodo.m */,
+				D12410231971A42600D88A40 /* Todo.h */,
+				D12410241971A42600D88A40 /* Todo.m */,
 			);
 			path = MotToDo;
 			sourceTree = "<group>";
@@ -281,16 +321,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D12410121970BA2200D88A40 /* halfblue.png in Resources */,
+				D124101A1970D34600D88A40 /* fuji.jpg in Resources */,
 				D1C880CE196BA24300F58769 /* Images.xcassets in Resources */,
+				D12410211971223200D88A40 /* gakepputi.wav in Resources */,
 				D124100F196FF91200D88A40 /* fight-shibasaki.wav in Resources */,
 				D1241000196DA9FB00D88A40 /* oikaketemasuka.wav in Resources */,
+				D124101E197121D100D88A40 /* akiramennayo.wav in Resources */,
+				D12410191970D34600D88A40 /* halforange.png in Resources */,
 				D1241008196E47C100D88A40 /* atsukunareyo.wav in Resources */,
 				D1C880BD196BA24300F58769 /* InfoPlist.strings in Resources */,
 				D1241007196E47C100D88A40 /* ganbareyo.wav in Resources */,
 				D1241009196E47C100D88A40 /* chancegakuru.wav in Resources */,
 				D124100A196E47C100D88A40 /* fujisanda.wav in Resources */,
+				D12410181970D34600D88A40 /* allorange.png in Resources */,
 				D1241002196E388C00D88A40 /* ganbareganbare.wav in Resources */,
+				D124101C1970EFC500D88A40 /* shibasaki1.jpg in Resources */,
+				D12410221971223200D88A40 /* hitoyasumi.wav in Resources */,
 				D1C880C6196BA24300F58769 /* Main.storyboard in Resources */,
+				D12410141970BB0E00D88A40 /* allblue.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +365,7 @@
 				D124100D196E66E600D88A40 /* UITableViewCellAsTodo.m in Sources */,
 				D1C880EF196BDD8E00F58769 /* AddItemViewController.m in Sources */,
 				D1C880CC196BA24300F58769 /* DetailViewController.m in Sources */,
+				D12410251971A42600D88A40 /* Todo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
